@@ -10,9 +10,9 @@ function App() {
       <br />
       <Button btnType='primary' disabled>Primary Disabled</Button>
       <br />
-      <Button btnType='primary' size={'large'}>Primary</Button>
+      <Button btnType='primary' size={'lg'}>Primary</Button>
       <br />
-      <Button btnType='primary' size={'small'}>Primary</Button>
+      <Button btnType='primary' size={'sm'}>Primary</Button>
       <br />
       <Button btnType={'danger'}>Danger</Button>
       <br />
