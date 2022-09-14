@@ -8,15 +8,34 @@
 $white: #fff !default;
 ```
 
+表示仅当 `white` 变量未被定义或值为 `null` 时才会使用默认值。
+
 ### `darken($color, $amount)`
 
 降低颜色的亮度, `$amount` 的值在 0% ~ 100%
 
-表示仅当 `white` 变量未被定义或值为 `null` 时才会使用默认值。
+### `lighten($color, $amount)`
+
+使颜色变浅， `$amount` 的值在 0% ~ 100%
 
 ### Placeholder Selectors
 
 Sometimes you want to write a style rule that’s only intended to be extended. In that case, you can use placeholder selectors, which look like class selectors that start with % instead of `.` .
+
+### mixin
+
+```scss
+// 定义
+@mixin mixinName() {}
+
+
+// 使用
+body {
+  @include mixinName();
+}
+```
+
+
 
 ## 组件库样式变量分类
 
@@ -35,7 +54,7 @@ Sometimes you want to write a style rule that’s only intended to be extended. 
 
 ### 可配置开关
 
-## Others
+### Others
 
 ### `currentColor`
 
@@ -43,4 +62,10 @@ Sometimes you want to write a style rule that’s only intended to be extended. 
 
 ```css
 background-color: currentColor;
+```
+
+### `pointer-events`
+
+```css
+pointer-events: none; /* 禁止指针事件 */
 ```

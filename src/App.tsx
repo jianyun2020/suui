@@ -1,29 +1,25 @@
 import React from 'react';
+import Button from './components/Button/button';
 
 function App() {
   return (
     <div className="App">
+      <Button>Default</Button>
+      <br />
+      <Button className='custom' onClick={(e) => {e.preventDefault(); alert('hh')}}  btnType='primary'>Primary</Button>
+      <br />
+      <Button btnType='primary' disabled>Primary Disabled</Button>
+      <br />
+      <Button btnType='primary' size={'large'}>Primary</Button>
+      <br />
+      <Button btnType='primary' size={'small'}>Primary</Button>
+      <br />
+      <Button btnType={'danger'}>Danger</Button>
+      <br />
+      <Button btnType={'link'} href="https://www.baidu.com">Link</Button>
+      <br />
+      <Button btnType={'link'} href="https://www.baidu.com" disabled>Link Disabeld</Button>
 
-      <h1>标题</h1>
-      <h2>标题</h2>
-      <h3>标题</h3>
-      <hr />
-      <code>
-        const a = 'b'
-      </code>
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
