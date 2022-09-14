@@ -1,0 +1,40 @@
+.alert {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: .5rem 1rem;
+  border-radius: $border-radius-lg;
+  color: $white;
+  
+  &-default {
+    background-color: $primary;
+  }
+
+  &-success {
+    background-color: $success;
+  }
+
+  &-warning {
+    background-color: $warning;
+  }
+
+  &-danger {
+    background-color: $danger;
+  }
+}
+
+.alert-message {
+  font-size: $font-size-base;
+}
+
+.alert-description {
+  font-size: $font-size-sm;
+}
+
+.alert-btn {
+  outline: none;
+  border: none;
+  color: $white;
+  background-color: transparent;
+}

@@ -1,25 +1,13 @@
 import React from 'react';
-import Button from './components/Button/button';
+import Alert from './components/Alert/alert';
 
 function App() {
   return (
     <div className="App">
-      <Button>Default</Button>
-      <br />
-      <Button className='custom' onClick={(e) => {e.preventDefault(); alert('hh')}}  btnType='primary'>Primary</Button>
-      <br />
-      <Button btnType='primary' disabled>Primary Disabled</Button>
-      <br />
-      <Button btnType='primary' size={'lg'}>Primary</Button>
-      <br />
-      <Button btnType='primary' size={'sm'}>Primary</Button>
-      <br />
-      <Button btnType={'danger'}>Danger</Button>
-      <br />
-      <Button btnType={'link'} href="https://www.baidu.com">Link</Button>
-      <br />
-      <Button btnType={'link'} href="https://www.baidu.com" disabled>Link Disabeld</Button>
-
+      <Alert message='我是标题' description='我是描述' />
+      <Alert message='我是标题' type='success' />
+      <Alert message='我是标题' type='danger' />
+      <Alert message='我是标题' type='warning' />
     </div>
   );
 }
