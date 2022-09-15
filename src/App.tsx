@@ -1,13 +1,21 @@
 import React from 'react';
-import Alert from './components/Alert/alert';
+import Menu from './components/Menu/menu';
+import MenuItem from './components/Menu/menuItem';
 
 function App() {
   return (
     <div className="App">
-      <Alert message='我是标题' description='我是描述' />
-      <Alert message='我是标题' type='success' />
-      <Alert message='我是标题' type='danger' />
-      <Alert message='我是标题' type='warning' />
+     <Menu defaultIndex={0} onSelect={(index) => alert(index)}>
+      <MenuItem index={0}>
+        link1
+      </MenuItem>
+      <MenuItem index={1} disabled>
+        link2
+      </MenuItem>
+      <MenuItem index={2}>
+        link3
+      </MenuItem>
+     </Menu>
     </div>
   );
 }
