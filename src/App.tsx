@@ -6,25 +6,25 @@ function App() {
   return (
     <div className="App">
      <Menu defaultIndex={0} onSelect={(index) => alert(index)}>
-      <MenuItem index={0}>
+      <MenuItem >
         link1
       </MenuItem>
-      <MenuItem index={1} disabled>
+      <MenuItem  disabled>
         link2
       </MenuItem>
-      <MenuItem index={2}>
+      <MenuItem >
         link3
       </MenuItem>
      </Menu>
      <br />
      <Menu mode='vertical'  defaultIndex={0} onSelect={(index) => alert(index)}>
-      <MenuItem index={0}>
+      <MenuItem >
         link1
       </MenuItem>
-      <MenuItem index={1} disabled>
+      <MenuItem  disabled>
         link2
       </MenuItem>
-      <MenuItem index={2}>
+      <MenuItem >
         link3
       </MenuItem>
      </Menu>
