@@ -1,59 +1,38 @@
-import React from 'react';
-import Menu from './components/Menu/menu';
-import MenuItem from './components/Menu/menuItem';
-import SubMenu from './components/Menu/subMenu';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import React from "react";
+import Icon from "./components/Icon/icon";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import Menu from "./components/Menu/menu";
+import SubMenu from "./components/Menu/subMenu";
+import MenuItem from "./components/Menu/menuItem";
+
+library.add(fas);
 
 function App() {
   return (
     <div className="App">
-     <Menu defaultIndex={'0'} onSelect={(index) => alert(index)} defaultOpenSubMenu={['2']}>
-      <MenuItem >
-        link1
-      </MenuItem>
-      <MenuItem  disabled>
-        link2
-      </MenuItem>
-
-      <SubMenu title='dropdown'>
-        <MenuItem>
-          下拉1哈哈哈哈
-        </MenuItem>
-        <MenuItem disabled>
-          下拉2
-        </MenuItem>
-        <MenuItem>
-          下拉3
-        </MenuItem>
-      </SubMenu>
-
-      <MenuItem >
-        link3
-      </MenuItem>
-     </Menu>
-     <br />
-     <Menu mode='vertical'  defaultIndex={'0'} onSelect={(index) => alert(index)} defaultOpenSubMenu={['2']}>
-      <MenuItem >
-        link1
-      </MenuItem>
-      <MenuItem  disabled>
-        link2
-      </MenuItem>
-
-      <SubMenu title='dropdown'>
-        <MenuItem>
-          下拉1
-        </MenuItem>
-        <MenuItem disabled>
-          下拉2
-        </MenuItem>
-        <MenuItem>
-          下拉3
-        </MenuItem>
-      </SubMenu>
-      <MenuItem >
-        link3
-      </MenuItem>
-     </Menu>
+      <Menu>
+        <MenuItem>active</MenuItem>
+        <MenuItem disabled>disabled</MenuItem>
+        <MenuItem>xyz</MenuItem>
+        <SubMenu title="dropdown">
+          <MenuItem>drop1</MenuItem>
+        </SubMenu>
+        <SubMenu title="opened">
+          <MenuItem>opened1</MenuItem>
+        </SubMenu>
+      </Menu>
+      <Menu mode="vertical">
+        <MenuItem>active</MenuItem>
+        <MenuItem disabled>disabled</MenuItem>
+        <MenuItem>xyz</MenuItem>
+        <SubMenu title="dropdown">
+          <MenuItem>drop1</MenuItem>
+        </SubMenu>
+        <SubMenu title="opened">
+          <MenuItem>opened1</MenuItem>
+        </SubMenu>
+      </Menu>
     </div>
   );
 }

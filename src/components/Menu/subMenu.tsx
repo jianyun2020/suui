@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React, { FunctionComponentElement, useContext, useState } from "react";
+import Icon from "../Icon/icon";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuItem";
 
@@ -13,12 +14,17 @@ export interface SubMenuProps {
 const SubMenu = ({ index, title, children, className }: SubMenuProps) => {
   const context = useContext(MenuContext);
 
-  const openedSubMenus = context.defaultOpenSubMenu as Array<string>
-  const isOpend = (index && context.mode === 'vertical') ? openedSubMenus.includes(index) : false
-  
+  const openedSubMenus = context.defaultOpenSubMenu as Array<string>;
+  const isOpend =
+    index && context.mode === "vertical"
+      ? openedSubMenus.includes(index)
+      : false;
+
   const [menuOpen, setOpen] = useState(isOpend);
   const classes = classNames("menu-item submenu-item", className, {
     "is-active": context.index === index,
+    'is-opened': menuOpen,
+    'is-vertical': context.mode === 'vertical'
   });
 
   const handClick = (e: React.MouseEvent) => {
@@ -34,10 +40,17 @@ const SubMenu = ({ index, title, children, className }: SubMenuProps) => {
     }, 100);
   };
   const clickEvents = context.mode === "vertical" ? { onClick: handClick } : {};
-  const hoverEvents = context.mode !== "vertical" ? {
-    onMouseEnter: (e: React.MouseEvent) => {handleMouse(e, true)},
-    onMouseLeave: (e: React.MouseEvent) => {handleMouse(e, false)},
-  } : {};
+  const hoverEvents =
+    context.mode !== "vertical"
+      ? {
+          onMouseEnter: (e: React.MouseEvent) => {
+            handleMouse(e, true);
+          },
+          onMouseLeave: (e: React.MouseEvent) => {
+            handleMouse(e, false);
+          },
+        }
+      : {};
 
   const renderChildren = () => {
     const subMenuClasses = classNames("submenu", {
@@ -47,7 +60,7 @@ const SubMenu = ({ index, title, children, className }: SubMenuProps) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>;
       if (childElement.type.displayName === "MenuItem") {
         return React.cloneElement(childElement, {
-          index: `${index}-${i}`
+          index: `${index}-${i}`,
         });
       } else {
         console.error(
@@ -61,7 +74,10 @@ const SubMenu = ({ index, title, children, className }: SubMenuProps) => {
 
   return (
     <li key={index} className={classes} {...hoverEvents}>
-      <div className="submenu-title" {...clickEvents}>{title}</div>
+      <div className="submenu-title" {...clickEvents}>
+        {title}
+        <Icon icon="angle-down" className="arrow-icon" />
+      </div>
       {renderChildren()}
     </li>
   );

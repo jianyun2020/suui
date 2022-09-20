@@ -35,7 +35,20 @@ body {
 }
 ```
 
+### maps
 
+```scss
+$icons: ("eye": "\f112", "start": "\f12e", "stop": "\f12f");
+
+@each $name, $glyph in $icons {
+  .icon-#{$name}:before {
+    display: inline-block;
+    font-family: "Icon Font";
+    content: $glyph;
+  }
+}
+
+```
 
 ## 组件库样式变量分类
 
