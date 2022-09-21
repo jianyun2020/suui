@@ -3,9 +3,9 @@ import React, { FunctionComponentElement, useContext, useState } from "react";
 import Icon from "../Icon/icon";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuItem";
-import { CSSTransition } from "react-transition-group";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import Transition from "../Transition/transition";
 library.add(fas);
 export interface SubMenuProps {
   index?: string;
@@ -73,15 +73,13 @@ const SubMenu = ({ index, title, children, className }: SubMenuProps) => {
     });
 
     return (
-      <CSSTransition
+      <Transition
         in={menuOpen}
         timeout={300}
-        classNames="zoom-in-top"
-        appear
-        unmountOnExit
+        animation="zoom-in-bottom"
       >
         <ul className={subMenuClasses}>{childrenComponent}</ul>
-      </CSSTransition>
+      </Transition>
     );
   };
 
