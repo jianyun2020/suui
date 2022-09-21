@@ -3,7 +3,10 @@ import React, { FunctionComponentElement, useContext, useState } from "react";
 import Icon from "../Icon/icon";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuItem";
-
+import { CSSTransition } from "react-transition-group";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fas);
 export interface SubMenuProps {
   index?: string;
   title: string;
@@ -23,8 +26,8 @@ const SubMenu = ({ index, title, children, className }: SubMenuProps) => {
   const [menuOpen, setOpen] = useState(isOpend);
   const classes = classNames("menu-item submenu-item", className, {
     "is-active": context.index === index,
-    'is-opened': menuOpen,
-    'is-vertical': context.mode === 'vertical'
+    "is-opened": menuOpen,
+    "is-vertical": context.mode === "vertical",
   });
 
   const handClick = (e: React.MouseEvent) => {
@@ -69,7 +72,17 @@ const SubMenu = ({ index, title, children, className }: SubMenuProps) => {
       }
     });
 
-    return <ul className={subMenuClasses}>{childrenComponent}</ul>;
+    return (
+      <CSSTransition
+        in={menuOpen}
+        timeout={300}
+        classNames="zoom-in-top"
+        appear
+        unmountOnExit
+      >
+        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      </CSSTransition>
+    );
   };
 
   return (

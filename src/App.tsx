@@ -1,11 +1,8 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
+
 import React from "react";
-import { fas } from "@fortawesome/free-solid-svg-icons";
 import Menu from "./components/Menu/menu";
 import SubMenu from "./components/Menu/subMenu";
 import MenuItem from "./components/Menu/menuItem";
-
-library.add(fas);
 
 function App() {
   return (
